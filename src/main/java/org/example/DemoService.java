@@ -9,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Base64;
-
 @Service
 public class DemoService {
 
@@ -26,12 +24,12 @@ public class DemoService {
 
     public String fetchResponse() {
         // Encode to Base64
-        String encoded = Base64
+        /*String encoded = Base64
                 .getEncoder()
-                .encodeToString((userName + ":" + password).getBytes());
+                .encodeToString((userName + ":" + password).getBytes());*/
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.set("Authorization", "Basic " + encoded);
+        httpHeaders.setBasicAuth(userName, password);
 
         HttpEntity<Void> httpEntity = new HttpEntity<>(httpHeaders);
         ResponseEntity<String> responseEntity = restTemplate
