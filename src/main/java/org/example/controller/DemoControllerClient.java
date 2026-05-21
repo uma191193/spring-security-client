@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/demo")
+@RequestMapping(value = "/client")
 public class DemoControllerClient {
 
     @Autowired
     private DemoService demoService;
 
-    @GetMapping(value = "/fetchFromProducer")
+    @GetMapping(value = "/fetch")
     public ResponseEntity<String> fetchFromProducer() {
         String fetchResponse = demoService.fetchResponse();
         return new ResponseEntity<>(fetchResponse, HttpStatus.OK);

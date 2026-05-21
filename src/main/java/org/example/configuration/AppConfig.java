@@ -10,7 +10,6 @@ public class AppConfig {
 
     @Bean
     public RestTemplate restTemplate() {
-        // Instantiate and return a fresh RestTemplate instance
         return new RestTemplate();
     }
 }
